@@ -56,10 +56,13 @@ class PasswordService
 
     public function persist($password, $ip)
     {
-        require '/var/www/html/repository/PasswordConnection.php';
-        require '/var/www/html/model/PasswordModel.php';
+        require '/var/www/migranpassword/repository/PasswordConnection.php';
+        require '/var/www/migranpassword/model/PasswordModel.php';
+
+        $date = date_create('now');
+        $insertDate = date_format($date, 'Y/m/d');
         $passwordConnection = new PasswordConnection();
-        $passwordModel = new PasswordModel($password, $ip, new DateTime('now'));
+        $passwordModel = new PasswordModel($password, $ip, $insertDate);
         $passwordConnection->persist($passwordModel);
     }
 }

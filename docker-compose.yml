@@ -10,6 +10,7 @@ services:
       - db
     tty: true
     stdin_open: true
+    build: .
 
   db:
     image: bitnami/mariadb
