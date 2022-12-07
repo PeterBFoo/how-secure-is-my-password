@@ -4,7 +4,7 @@ class PasswordResource
 {
     public function getPasswords()
     {
-        require '/var/www/html/service/PasswordService.php';
+        require '/var/www/migranpassword/service/PasswordService.php';
         $passwordService = new PasswordService();
         return $passwordService->getPasswords();
     }
